@@ -1,0 +1,9 @@
+RewriteEngine on  
+RewriteBase /blog-management-system/admin
+
+RewriteCond %{THE_REQUEST} (.*)\.html  
+RewriteRule ^(.*)\.html $1.php [L]  
+
+RewriteCond %{REQUEST_FILENAME} !-d [NC]
+RewriteCond %{REQUEST_FILENAME} !-f [NC]
+RewriteRule ^(.*)$ ../BirthDayWish-Cards/BirthdayCard.php?birthid=$1 [QSA,L]

@@ -1,0 +1,14 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /blog-management-system/
+
+RewriteCond %{THE_REQUEST} (.*)\.php  
+RewriteRule ^(.*)\.php $1.html [R=301,L]  
+
+RewriteCond %{THE_REQUEST} (.*)\.html  
+RewriteRule ^(.*)\.html $1.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d [NC]
+RewriteCond %{REQUEST_FILENAME} !-f [NC]
+RewriteRule ^(.*)$ blogDetails.php?id=$1 [QSA,L]
+
